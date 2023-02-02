@@ -1,0 +1,10 @@
+<article class="card">
+  <a href="#">
+    <img [src]="movie?.poster" [alt]="movie?.title" />
+  </a>
+  <div class="rating">
+    <fa-icon icon="star"></fa-icon>
+    {{ movie?.rating }}
+  </div>
+  <h3>{{ movie?.title }}</h3>
+</article>

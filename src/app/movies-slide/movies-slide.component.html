@@ -1,0 +1,9 @@
+<h2>Fan Favorites</h2>
+<p>This week's top TV and movies</p>
+<div class="slide">
+  <ul>
+    <li *ngFor="let movie of movies">
+      <app-movie [movie]="movie" />
+    </li>
+  </ul>
+</div>
