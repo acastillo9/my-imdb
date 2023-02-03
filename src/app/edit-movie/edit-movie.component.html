@@ -1,0 +1,62 @@
+<div class="form-wrapper p-3">
+  <p>edit-movie works!</p>
+  <p *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</p>
+  <form [formGroup]="formMovie" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        formControlName="title"
+      />
+      <div
+        *ngIf="
+          formMovie.get('title')?.invalid &&
+          (formMovie.get('title')?.dirty || formMovie.get('title')?.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="formMovie.get('title')?.errors?.['required']">
+          Title is required.
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="rating" class="form-label">Rating</label>
+      <input
+        type="number"
+        class="form-control"
+        id="rating"
+        formControlName="rating"
+      />
+      <div
+        *ngIf="
+          formMovie.get('rating')?.invalid &&
+          (formMovie.get('rating')?.dirty || formMovie.get('rating')?.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="formMovie.get('rating')?.errors?.['required']">
+          Rating is required.
+        </div>
+        <div *ngIf="formMovie.get('rating')?.errors?.['min']">
+          Rating cannot be less than 1
+        </div>
+        <div *ngIf="formMovie.get('rating')?.errors?.['max']">
+          Rating cannot be greater than 10
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="poster" class="form-label">Poster</label>
+      <input
+        type="text"
+        class="form-control"
+        id="poster"
+        formControlName="poster"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>

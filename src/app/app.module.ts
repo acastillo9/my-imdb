@@ -23,6 +23,8 @@ import { SwipperTestComponent } from './swipper-test/swipper-test.component';
 import { TvShowsComponent } from './tv-shows/tv-shows.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { EstrenosComponent } from './estrenos/estrenos.component';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { EstrenosComponent } from './estrenos/estrenos.component';
     TvShowsComponent,
     MovieDetailsComponent,
     EstrenosComponent,
+    EditMovieComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { EstrenosComponent } from './estrenos/estrenos.component';
     FontAwesomeModule,
     HttpClientModule,
     SwiperModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
