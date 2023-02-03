@@ -29,4 +29,51 @@ export class MovieDetailsComponent implements OnInit {
       console.log(queryParams);
     });
   }
+
+  crearPelicula() {
+    this.http
+      .post<Movie>(`${environment.apiUrl}/movies`, {
+        id: '5',
+        title: 'Back to the future 2',
+        rating: 8,
+        poster:
+          'https://m.media-amazon.com/images/M/MV5BNGZhMDM0YTItZTIwYy00ZTA0LTkxYmYtY2MzNzZkOGFkNThjXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg',
+      })
+      .subscribe((movie) => {
+        console.log(movie);
+      });
+  }
+
+  borrarPelicula() {
+    const id = '5';
+    this.http.delete(`${environment.apiUrl}/movies/${id}`).subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+  actualizarPelicula() {
+    const id = '5';
+    this.http
+      .put<Movie>(`${environment.apiUrl}/movies/${id}`, {
+        id: '5',
+        title: 'Back to the future 1',
+        rating: 7,
+        poster:
+          'https://m.media-amazon.com/images/M/MV5BNGZhMDM0YTItZTIwYy00ZTA0LTkxYmYtY2MzNzZkOGFkNThjXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg',
+      })
+      .subscribe((movie) => {
+        console.log(movie);
+      });
+  }
+
+  actualizarPeliculaPatch() {
+    const id = '5';
+    this.http
+      .patch<Movie>(`${environment.apiUrl}/movies/${id}`, {
+        title: 'Back to the future 2',
+      })
+      .subscribe((movie) => {
+        console.log(movie);
+      });
+  }
 }
