@@ -14,7 +14,7 @@ import { BsMenuComponent } from './header/bs-menu/bs-menu.component';
 import { MenuSidebarComponent } from './header/menu-sidebar/menu-sidebar.component';
 import { AccordionMenuComponent } from './header/menu-sidebar/accordion-menu/accordion-menu.component';
 import { MoviesComponent } from './movies/movies.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { MoviesSlideComponent } from './movies-slide/movies-slide.component';
 import { MovieComponent } from './movie/movie.component';
@@ -25,6 +25,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { EstrenosComponent } from './estrenos/estrenos.component';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './auth.interceptor';
+import { AlertModalComponent } from './alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +53,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     SwiperModule,
     ReactiveFormsModule,
+    AlertModalComponent,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

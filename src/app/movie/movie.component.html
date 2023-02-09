@@ -4,7 +4,7 @@
   </a>
   <div class="rating">
     <fa-icon icon="star"></fa-icon>
-    {{ movie?.rating }}
+    {{ movie?.rating | number : "1.0-3" }}
   </div>
   <h3>{{ movie?.title }}</h3>
 </article>

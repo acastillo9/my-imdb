@@ -19,4 +19,8 @@ export class BsMenuComponent implements OnInit {
       this.items = items;
     });
   }
+
+  testViewChild() {
+    console.log('Hola desde el padre');
+  }
 }
