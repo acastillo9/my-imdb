@@ -31,6 +31,7 @@ const routes: Routes = [
     path: 'tv-shows',
     component: TvShowsComponent,
   },
+  { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
 ];
 
 @NgModule({

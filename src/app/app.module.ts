@@ -27,6 +27,7 @@ import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.interceptor';
 import { AlertModalComponent } from './alert-modal/alert-modal.component';
+import { PaymentModule } from './payment/payment.module';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
     SwiperModule,
     ReactiveFormsModule,
     AlertModalComponent,
+    PaymentModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
